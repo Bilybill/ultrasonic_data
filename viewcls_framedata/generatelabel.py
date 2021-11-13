@@ -1,24 +1,37 @@
 #%%
+import enum
 import json
 from json import encoder
+
+from ultrasonic.ultrasonic_diagnosis.dataset import label
 with open("annotation.json",'r') as f:
     info_dic = json.load(f)
 # %%
 info_dic.__len__()
 # %%
-dic_label = {'胸骨旁二尖瓣短轴': 0,'胸骨旁短轴心尖': 0,'胸骨旁主动脉瓣短轴': 0,'胸骨旁乳头肌平面': 0, '胸骨旁短轴': 0,'胸骨旁左心室长轴': 1,'心尖四腔心': 2,'剑突下四腔心': 3,'剑突下下腔静脉长轴': 4,'剑下腔静脉短轴': 5,'LP': 6, 'RL': 7, 'LU': 8, 'LL': 9, 'RD': 10, 'LD': 11, 'RU': 12, 'RB': 13, 'LB': 14,  'RP': 15,'其他': 16}
-# %%
-info_dic
+# dic_label = {'胸骨旁二尖瓣短轴': 0,'胸骨旁短轴心尖': 0,'胸骨旁主动脉瓣短轴': 0,'胸骨旁乳头肌平面': 0, '胸骨旁短轴': 0,'胸骨旁左心室长轴': 1,'心尖四腔心': 2,'剑突下四腔心': 3,'剑突下下腔静脉长轴': 4,'剑下腔静脉短轴': 5,'LP': 6, 'RL': 7, 'LU': 8, 'LL': 9, 'RD': 10, 'LD': 11, 'RU': 12, 'RB': 13, 'LB': 14,  'RP': 15,'其他': 16}
+# label_2_view =  {0: '胸骨旁短轴', 1: '胸骨旁左心室长轴', 2: '心尖四腔心', 3: '剑突下四腔心', 4: '剑突下下腔静脉长轴', 5: '剑下腔静脉短轴', 6: 'P', 7: 'U', 8: 'D', 9: 'B', 10: 'L', 11: '其他'}
+# dic_label = {'胸骨旁二尖瓣短轴': 0,'胸骨旁短轴心尖': 0,'胸骨旁主动脉瓣短轴': 0,'胸骨旁乳头肌平面': 0, '胸骨旁短轴': 0,'胸骨旁左心室长轴': 1,'心尖四腔心': 2,'剑突下四腔心': 3,'剑突下下腔静脉长轴': 4,'剑下腔静脉短轴': 5,'LP': 6, 'RP': 6, 'LU': 7, 'RU': 7, 'LD': 8, 'RD': 8, 'LB': 9, 'RB': 9, 'LL':10, 'RL': 10,'其他': 11, '大动脉短轴':11}
+view_2_label_v2 = {'RP': 0, 'LU': 1, 'LD': 2, '胸骨旁短轴心尖': 3, 'RB': 4, 'LB': 5, '胸骨旁主动脉瓣短轴': 6, '剑突下四腔心': 7, '其他': 8, '剑下腔静脉短轴': 9, '胸骨旁左心室长轴': 10, 'RL': 11, '大动脉短轴': 12, '心尖四腔心': 13, '胸骨旁乳头肌平面': 14, 'RU': 15, 'RD': 16, '剑突下下腔静脉长轴': 17, '胸骨旁二尖瓣短轴': 18, 'LP': 19, '胸骨旁短轴': 20, 'LL': 21}
+label_2_view_v2 = {0: 'RP', 1: 'LU', 2: 'LD', 3: '胸骨旁短轴心尖', 4: 'RB', 5: 'LB', 6: '胸骨旁主动脉瓣短轴', 7: '剑突下四腔心', 8: '其他', 9: '剑下腔静脉短轴', 10: '胸骨旁左心室长轴', 11: 'RL', 12: '大动脉短轴', 13: '心尖四腔心', 14: '胸骨旁乳头肌平面', 15: 'RU', 16: 'RD', 17: '剑突下下腔静脉长轴', 18: '胸骨旁二尖瓣短轴', 19: 'LP', 20: '胸骨旁短轴', 21: 'LL'}
 #%%
-label_dic = [dic_label[item['view']] for item in info_dic]
+# label_dic = [dic_label[item['view']] for item in info_dic]
+view_list = set([item['view'] for item in info_dic if item['view']])
+print(view_list)
+view_2_label = {views:label_index for label_index,views in enumerate(view_list)}
+label_2_view = {label_index:views for views,label_index in view_2_label.items()}
+print(view_2_label,label_2_view)
+#%%
+label_dic = [view_2_label[item['view']] for item in info_dic]
 print(label_dic,label_dic.__len__())
 # %%
 from sklearn.model_selection import train_test_split
-X_train,X_test,y_train,y_test = train_test_split(info_dic,label_dic,test_size=0.1,stratify=label_dic)
+X_train,X_test,y_train,y_test = train_test_split(info_dic,label_dic,test_size=0.1)
 #%%
-reverse_dic = {value:key for key,value in dic_label.items()}
-print(reverse_dic)
+# reverse_dic = {value:key for key,value in dic_label.items()}
+# print(reverse_dic)
 # %%
+reverse_dic = label_2_view
 import collections
 train_count = collections.Counter(y_train)
 dic = {reverse_dic[number]:value for number,value in train_count.items()}
@@ -36,13 +49,13 @@ labeldic.keys()-testdic.keys()
 # %%
 import json
 import collections
-with open("train_annotation.json",'a+',encoding='utf-8') as f:
+with open("train_annotation_v2.json",'w',encoding='utf-8') as f:
     f.write(json.dumps(X_train,sort_keys=False,indent=4,separators=(",",": "),ensure_ascii=False)+"\n")
-with open("test_annotation.json",'a+',encoding='utf-8') as f:
+with open("test_annotation_v2.json",'w',encoding='utf-8') as f:
     f.write(json.dumps(X_test,sort_keys=False,indent=4,separators=(",",": "),ensure_ascii=False)+"\n")
 # %%
-dic_label = {'胸骨旁二尖瓣短轴': 0,'胸骨旁短轴心尖': 0,'胸骨旁主动脉瓣短轴': 0,'胸骨旁乳头肌平面': 0, '胸骨旁短轴': 0,'胸骨旁左心室长轴': 1,'心尖四腔心': 2,'剑突下四腔心': 3,'剑突下下腔静脉长轴': 4,'剑下腔静脉短轴': 5,'LP': 6, 'RL': 7, 'LU': 8, 'LL': 9, 'RD': 10, 'LD': 11, 'RU': 12, 'RB': 13, 'LB': 14,  'RP': 15,'其他': 16}
-reverse_dic = {value:key for key,value in dic_label.items()}
+# dic_label = {'胸骨旁二尖瓣短轴': 0,'胸骨旁短轴心尖': 0,'胸骨旁主动脉瓣短轴': 0,'胸骨旁乳头肌平面': 0, '胸骨旁短轴': 0,'胸骨旁左心室长轴': 1,'心尖四腔心': 2,'剑突下四腔心': 3,'剑突下下腔静脉长轴': 4,'剑下腔静脉短轴': 5,'LP': 6, 'RL': 7, 'LU': 8, 'LL': 9, 'RD': 10, 'LD': 11, 'RU': 12, 'RB': 13, 'LB': 14,  'RP': 15,'其他': 16}
+# reverse_dic = {value:key for key,value in dic_label.items()}
 import json
 import collections
 with open("train_annotation.json",'r') as f:
@@ -50,8 +63,8 @@ with open("train_annotation.json",'r') as f:
 with open("test_annotation.json",'r') as f:
     test_dic = json.load(f)
 
-train_label = [dic_label[train_itm['view']] for train_itm in train_dic]
-test_label = [dic_label[test_itm['view']] for test_itm in test_dic]
+train_label = [view_2_label[train_itm['view']] for train_itm in train_dic]
+test_label = [view_2_label[test_itm['view']] for test_itm in test_dic]
 
 train_count = collections.Counter(train_label)
 traindic = {reverse_dic[number]:value for number,value in train_count.items()}

@@ -79,21 +79,23 @@ def savevideo2frame(save_root = "./"):
         "480_640":mask1,
         "910_1260":mask2
     }
-    topclses = getdirfrompath("../data")
+    prefix = '../../data'
+    topclses = getdirfrompath(prefix)
     numcount = 0
     for topcls in topclses:
-        subcls = getdirfrompath(os.path.join("../data",topcls))
+        subcls = getdirfrompath(os.path.join(prefix,topcls))
         for clsvideo in subcls:
-            video_file = getfilewithtype(os.path.join("../data",topcls,clsvideo),filetype=".mp4")
+            video_file = getfilewithtype(os.path.join(prefix,topcls,clsvideo),filetype=".mp4")
             for video in video_file:
                 basevideoname = video.replace(os.path.splitext(video)[-1],"")
                 save_path = os.path.join(save_root,topcls,clsvideo,basevideoname)
                 os.makedirs(save_path,exist_ok=True)
-                frames,_ = get_frames(os.path.join("../data",topcls,clsvideo,video),n_frames=36,use_roi=True,mask=mask)
+                frames,_ = get_frames(os.path.join(prefix,topcls,clsvideo,video),n_frames=36,use_roi=True,mask=mask)
                 store_frames(frames,save_path)
                 numcount += 1
+    print(f'total data number : {numcount}')
+savevideo2frame(save_root = '../../frame_data')
 
-savevideo2frame()
 
 # %%
 import json
@@ -108,19 +110,19 @@ def getannotation(dst="./"):
                 data_path = os.path.join(dst,topc,subcls,data_name)
                 info.append(
                     {
-                        "file_path":data_path,
+                        "file_path":os.path.join(topc,subcls,data_name),
                         "view":subcls,
                         "ustype":topc
                     }
                 )
     return info
 
-info = getannotation()
+info = getannotation(dst = '../../frame_data')
 info
 # %%
 info.__len__()
 # %%
-with open("annotation.json",'a+',encoding='utf-8') as f:
+with open("annotation.json",'w',encoding='utf-8') as f:
     f.write(json.dumps(info,sort_keys=False, indent=4, separators=(',', ': '),ensure_ascii=False)+"\n")
 # %%
 def getlabel(dst="./"):
@@ -151,7 +153,7 @@ def getlabel(dst="./"):
         xunhuan += subidx+1
     return toplabel,sublabel
 
-toplabel,sublabel = getlabel()
+toplabel,sublabel = getlabel(dst = '../../frame_data')
 print(toplabel)
 print(sublabel)
 #%%

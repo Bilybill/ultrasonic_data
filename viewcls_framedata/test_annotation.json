@@ -1,107 +1,97 @@
 [
     {
-        "file_path": "./Echocardiogram/剑突下下腔静脉长轴/模板7  CARD20200601092812剑下IVC",
-        "view": "剑突下下腔静脉长轴",
-        "ustype": "Echocardiogram"
-    },
-    {
-        "file_path": "./LungUltrasound/RL/2020Feb28 Study__[0000076]RL",
-        "view": "RL",
-        "ustype": "LungUltrasound"
-    },
-    {
-        "file_path": "./LungUltrasound/RD/模板3  2020Jul12 Study__[0003575]右膈肌  A线",
-        "view": "RD",
-        "ustype": "LungUltrasound"
-    },
-    {
-        "file_path": "./LungUltrasound/RB/2020Feb27 Study__[0000070]右侧后蓝点",
-        "view": "RB",
-        "ustype": "LungUltrasound"
-    },
-    {
-        "file_path": "./Echocardiogram/胸骨旁主动脉瓣短轴/模板1  2020Jul22 Study__[0003619]主动脉瓣短轴1",
+        "file_path": "Echocardiogram/胸骨旁主动脉瓣短轴/模板2  2020Jul24 Study__[0003633]胸骨旁短轴 主动脉瓣平面",
         "view": "胸骨旁主动脉瓣短轴",
         "ustype": "Echocardiogram"
     },
     {
-        "file_path": "./LungUltrasound/LU/模板5  20200528 liguolai by ZH6.1左肺上蓝点 A线",
-        "view": "LU",
-        "ustype": "LungUltrasound"
-    },
-    {
-        "file_path": "./Echocardiogram/胸骨旁左心室长轴/2020Feb27 Study__[0000070]胸骨旁长轴",
-        "view": "胸骨旁左心室长轴",
-        "ustype": "Echocardiogram"
-    },
-    {
-        "file_path": "./LungUltrasound/LP/模板66.4左肺PLAS点  碎片征",
-        "view": "LP",
-        "ustype": "LungUltrasound"
-    },
-    {
-        "file_path": "./Echocardiogram/心尖四腔心/模板7  CARD20200601092812心尖四腔",
-        "view": "心尖四腔心",
-        "ustype": "Echocardiogram"
-    },
-    {
-        "file_path": "./LungUltrasound/LB/模板2  2020Jul24 Study__[0003633]LB 实变",
-        "view": "LB",
-        "ustype": "LungUltrasound"
-    },
-    {
-        "file_path": "./Echocardiogram/胸骨旁左心室长轴/模板3  2020Jul12 Study__[0003575]胸骨旁长轴2",
-        "view": "胸骨旁左心室长轴",
-        "ustype": "Echocardiogram"
-    },
-    {
-        "file_path": "./LungUltrasound/RP/模板5  20200528 liguolai by ZH5.4右肺PLAS点 A线",
-        "view": "RP",
-        "ustype": "LungUltrasound"
-    },
-    {
-        "file_path": "./LungUltrasound/LD/模板1  2020Jul22 Study__[0003619]LD  B线",
-        "view": "LD",
-        "ustype": "LungUltrasound"
-    },
-    {
-        "file_path": "./LungUltrasound/LL/模板3  2020Jul12 Study__[0003575]LL  A线",
-        "view": "LL",
-        "ustype": "LungUltrasound"
-    },
-    {
-        "file_path": "./Echocardiogram/胸骨旁短轴/模板64.胸骨旁短轴3",
-        "view": "胸骨旁短轴",
-        "ustype": "Echocardiogram"
-    },
-    {
-        "file_path": "./LungUltrasound/RU/模板2  2020Jul24 Study__[0003633]RU A线",
-        "view": "RU",
-        "ustype": "LungUltrasound"
-    },
-    {
-        "file_path": "./Echocardiogram/剑突下四腔心/模板3  2020Jul12 Study__[0003575]剑下1",
+        "file_path": "Echocardiogram/剑突下四腔心/2020Mar02 Study__[0000081]剑下四腔心",
         "view": "剑突下四腔心",
         "ustype": "Echocardiogram"
     },
     {
-        "file_path": "./Echocardiogram/剑突下下腔静脉长轴/2020Feb27 Study__[0000070]剑下腔静脉",
+        "file_path": "LungUltrasound/RU/模板65.1右肺上蓝点 A线",
+        "view": "RU",
+        "ustype": "LungUltrasound"
+    },
+    {
+        "file_path": "LungUltrasound/RU/2020Feb27 Study__[0000070]右侧上蓝点",
+        "view": "RU",
+        "ustype": "LungUltrasound"
+    },
+    {
+        "file_path": "LungUltrasound/LL/模板7  CARD20200601092812LL A线",
+        "view": "LL",
+        "ustype": "LungUltrasound"
+    },
+    {
+        "file_path": "Echocardiogram/胸骨旁左心室长轴/模板63.胸骨旁长轴2",
+        "view": "胸骨旁左心室长轴",
+        "ustype": "Echocardiogram"
+    },
+    {
+        "file_path": "LungUltrasound/RD/2020Feb27 Study__[0000072]RD",
+        "view": "RD",
+        "ustype": "LungUltrasound"
+    },
+    {
+        "file_path": "LungUltrasound/LU/模板1  2020Jul22 Study__[0003619]LU B线+碎片",
+        "view": "LU",
+        "ustype": "LungUltrasound"
+    },
+    {
+        "file_path": "Echocardiogram/剑突下下腔静脉长轴/2020Feb27 Study__[0000070]剑下腔静脉",
         "view": "剑突下下腔静脉长轴",
         "ustype": "Echocardiogram"
     },
     {
-        "file_path": "./Echocardiogram/心尖四腔心/模板3  2020Jul12 Study__[0003575]心尖3",
+        "file_path": "Echocardiogram/胸骨旁短轴/模板3  2020Jul12 Study__[0003575]胸骨旁短1",
+        "view": "胸骨旁短轴",
+        "ustype": "Echocardiogram"
+    },
+    {
+        "file_path": "LungUltrasound/RL/模板65.2右肺下蓝点 A线",
+        "view": "RL",
+        "ustype": "LungUltrasound"
+    },
+    {
+        "file_path": "LungUltrasound/RD/2020Feb27 Study__[0000070]右侧膈肌点",
+        "view": "RD",
+        "ustype": "LungUltrasound"
+    },
+    {
+        "file_path": "Echocardiogram/心尖四腔心/模板4  20200527 zhangpingjun2.心尖四腔血流2",
         "view": "心尖四腔心",
         "ustype": "Echocardiogram"
     },
     {
-        "file_path": "./LungUltrasound/其他/模板5  20200528 liguolai by ZH肺动脉分支",
-        "view": "其他",
+        "file_path": "Echocardiogram/胸骨旁左心室长轴/模板1  2020Jul22 Study__[0003619]胸骨旁长轴",
+        "view": "胸骨旁左心室长轴",
+        "ustype": "Echocardiogram"
+    },
+    {
+        "file_path": "LungUltrasound/LB/2020Feb27 Study__[0000070]L后蓝点",
+        "view": "LB",
         "ustype": "LungUltrasound"
     },
     {
-        "file_path": "./Echocardiogram/剑下腔静脉短轴/2020Mar02 Study__[0000081]剑下短轴",
-        "view": "剑下腔静脉短轴",
+        "file_path": "LungUltrasound/LP/模板2  2020Jul24 Study__[0003633]LP B线",
+        "view": "LP",
+        "ustype": "LungUltrasound"
+    },
+    {
+        "file_path": "LungUltrasound/RP/模板4  20200527 zhangpingjun3.4右肺PLAS点  A线",
+        "view": "RP",
+        "ustype": "LungUltrasound"
+    },
+    {
+        "file_path": "Echocardiogram/剑突下下腔静脉长轴/2020Feb28 Study__[0000076]剑下腔静脉",
+        "view": "剑突下下腔静脉长轴",
+        "ustype": "Echocardiogram"
+    },
+    {
+        "file_path": "Echocardiogram/心尖四腔心/模板3  2020Jul12 Study__[0003575]心尖3",
+        "view": "心尖四腔心",
         "ustype": "Echocardiogram"
     }
 ]
